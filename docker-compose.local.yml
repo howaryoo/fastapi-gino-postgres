@@ -1,21 +1,19 @@
 version: '3'
 
 services:
-  app:
-    container_name: fastapi-gino-postgres
-    image: fastapi-gino-postgres
+  api:
     environment:
-      - DB_HOST=database
+      - DB_HOST=postgres
       - DATABASE=postgres
       - DB_USER=postgres
       - DB_PASSWORD=postgres
       - DB_PORT=5432
     depends_on:
-      - database
+      - postgres
 
-  database:
-    image: "postgres:latest"
-    container_name: postgresql11
+  postgres:
+    image: "postgres:12"
+    container_name: postgres
     restart: always
     ports:
       - 54320:5432

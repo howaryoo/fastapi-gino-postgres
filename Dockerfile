@@ -1,5 +1,8 @@
 FROM tiangolo/uvicorn-gunicorn:python3.7-alpine3.8
 
+ENV PYTHONPATH "${PYTHONPATH}:/app"
+ENV PATH "${PATH}:/app/app"
+
 RUN pip install pipenv
 
 COPY Pipfile Pipfile
